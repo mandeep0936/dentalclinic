@@ -23,7 +23,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import Sidebar from "@/components/doctor/Sidebar";
-import AppointmentCalendar from "@/components/doctor/AppointmentCalendar";
 
 const DashboardPage = () => {
   const [activeTab, setActiveTab] = useState("overview");
@@ -247,13 +246,28 @@ const DashboardPage = () => {
             <TabsContent value="appointments" className="space-y-4">
               <Card>
                 <CardHeader>
-                  <CardTitle>Appointment Calendar</CardTitle>
+                  <CardTitle>Appointment Management</CardTitle>
                   <CardDescription>
-                    Manage your upcoming appointments
+                    View and manage appointments from the dedicated appointments
+                    page
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <AppointmentCalendar />
+                  <div className="p-6 flex flex-col items-center justify-center text-center">
+                    <Calendar className="h-10 w-10 text-muted-foreground mb-4" />
+                    <h3 className="text-lg font-medium">Manage Appointments</h3>
+                    <p className="text-sm text-muted-foreground mt-2 mb-4">
+                      Go to the appointments page to view and manage all patient
+                      appointments
+                    </p>
+                    <Button
+                      onClick={() =>
+                        (window.location.href = "/doctor/appointments")
+                      }
+                    >
+                      Go to Appointments
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             </TabsContent>
@@ -264,20 +278,23 @@ const DashboardPage = () => {
                 <CardHeader>
                   <CardTitle>Time Slot Management</CardTitle>
                   <CardDescription>
-                    Configure your available appointment slots
+                    Configure your working hours and time slots from the
+                    dedicated slots page
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="p-6 flex flex-col items-center justify-center text-center">
                     <Clock className="h-10 w-10 text-muted-foreground mb-4" />
-                    <h3 className="text-lg font-medium">
-                      Configure Your Schedule
-                    </h3>
+                    <h3 className="text-lg font-medium">Manage Time Slots</h3>
                     <p className="text-sm text-muted-foreground mt-2 mb-4">
-                      Set your working hours and available time slots for
-                      appointments
+                      Go to the time slots page to configure your working hours
+                      and availability
                     </p>
-                    <Button>Configure Time Slots</Button>
+                    <Button
+                      onClick={() => (window.location.href = "/doctor/slots")}
+                    >
+                      Go to Time Slots
+                    </Button>
                   </div>
                 </CardContent>
               </Card>

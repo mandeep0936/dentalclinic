@@ -26,10 +26,13 @@ import {
   Phone,
   Mail,
   MapPin,
+  CheckCircle,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { useToast } from "@/components/ui/use-toast";
 
 function Home() {
+  const { toast } = useToast();
   const [appointmentForm, setAppointmentForm] = useState({
     name: "",
     email: "",
@@ -38,6 +41,7 @@ function Home() {
     date: "",
     time: "",
   });
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const services = [
     {
@@ -100,7 +104,29 @@ function Home() {
     e.preventDefault();
     console.log("Appointment request:", appointmentForm);
     // Here you would typically send the data to your backend
-    alert("Appointment request submitted! We'll contact you soon to confirm.");
+
+    // Show success toast
+    toast({
+      title: "Appointment Request Submitted!",
+      description: "We'll contact you soon to confirm your appointment.",
+    });
+
+    // Reset form
+    setAppointmentForm({
+      name: "",
+      email: "",
+      phone: "",
+      service: "",
+      date: "",
+      time: "",
+    });
+
+    setIsSubmitted(true);
+
+    // Reset success state after 3 seconds
+    setTimeout(() => {
+      setIsSubmitted(false);
+    }, 3000);
   };
 
   const scrollToAppointment = () => {
@@ -466,9 +492,19 @@ function Home() {
                 <Button
                   type="submit"
                   className="w-full bg-blue-600 hover:bg-blue-700 text-lg py-3"
+                  disabled={isSubmitted}
                 >
-                  <Calendar className="mr-2 h-5 w-5" />
-                  Request Appointment
+                  {isSubmitted ? (
+                    <>
+                      <CheckCircle className="mr-2 h-5 w-5" />
+                      Request Submitted!
+                    </>
+                  ) : (
+                    <>
+                      <Calendar className="mr-2 h-5 w-5" />
+                      Request Appointment
+                    </>
+                  )}
                 </Button>
               </form>
             </CardContent>

@@ -3,6 +3,8 @@ import { useRoutes } from "react-router-dom";
 import Home from "./components/home";
 import Login from "./pages/Login";
 import DashboardPage from "./pages/doctor/dashboard";
+import AppointmentManagement from "./pages/doctor/AppointmentManagement";
+import SlotManagement from "./pages/doctor/SlotManagement";
 import BlogManagement from "./pages/doctor/BlogManagement";
 import Settings from "./pages/doctor/Settings";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -33,7 +35,7 @@ function App() {
       path: "/doctor/appointments",
       element: (
         <ProtectedRoute>
-          <DashboardPage />
+          <AppointmentManagement />
         </ProtectedRoute>
       ),
     },
@@ -41,7 +43,7 @@ function App() {
       path: "/doctor/slots",
       element: (
         <ProtectedRoute>
-          <DashboardPage />
+          <SlotManagement />
         </ProtectedRoute>
       ),
     },

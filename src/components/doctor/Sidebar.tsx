@@ -59,11 +59,6 @@ const Sidebar = ({
       label: "Profile",
       href: "/doctor/profile",
     },
-    {
-      icon: <Settings className="h-5 w-5" />,
-      label: "Settings",
-      href: "/doctor/settings",
-    },
   ];
 
   const handleLogout = () => {
