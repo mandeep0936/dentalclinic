@@ -14,12 +14,12 @@ import Sidebar from "@/components/doctor/Sidebar";
 
 const SlotManagement = () => {
   return (
-    <div className="flex h-screen bg-background">
+    <div className="flex h-screen bg-gradient-to-b from-blue-50 to-white">
       {/* Sidebar */}
       <Sidebar />
 
       {/* Main Content */}
-      <div className="flex-1 overflow-y-auto p-6">
+      <div className="flex-1 overflow-y-auto p-6 bg-gradient-to-b from-blue-50 to-white">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -30,7 +30,7 @@ const SlotManagement = () => {
             <h1 className="text-3xl font-bold tracking-tight">
               Time Slot Management
             </h1>
-            <Button>
+            <Button className="bg-blue-600 hover:bg-blue-700 shadow-md">
               <Clock className="mr-2 h-4 w-4" />
               Add Time Slot
             </Button>

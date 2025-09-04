@@ -56,7 +56,12 @@ const Sidebar = ({
     },
     {
       icon: <User className="h-5 w-5" />,
-      label: "Profile",
+      label: "Testimonials",
+      href: "/doctor/testimonials",
+    },
+    {
+      icon: <Settings className="h-5 w-5" />,
+      label: "Settings",
       href: "/doctor/profile",
     },
   ];
@@ -74,7 +79,7 @@ const Sidebar = ({
       animate={{ width: collapsed ? 80 : 280 }}
       transition={{ duration: 0.3 }}
       className={cn(
-        "h-screen bg-white border-r border-gray-200 flex flex-col justify-between",
+        "h-screen bg-gradient-to-b from-blue-50 to-white border-r border-blue-200 flex flex-col justify-between shadow-lg",
         className,
       )}
     >
@@ -87,10 +92,8 @@ const Sidebar = ({
               transition={{ delay: 0.1 }}
               className="flex items-center gap-2"
             >
-              <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">
-                  DC
-                </span>
+              <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center shadow-md">
+                <span className="text-white font-bold text-lg">DC</span>
               </div>
               <span className="font-semibold text-lg">DentalCare</span>
             </motion.div>
@@ -118,9 +121,9 @@ const Sidebar = ({
             collapsed ? "justify-center" : "items-center gap-3",
           )}
         >
-          <Avatar className="h-10 w-10 border-2 border-primary">
+          <Avatar className="h-10 w-10 border-2 border-blue-600 shadow-md">
             <AvatarImage src={doctorImage} alt={doctorName} />
-            <AvatarFallback className="bg-primary text-primary-foreground">
+            <AvatarFallback className="bg-blue-600 text-white">
               {doctorName
                 .split(" ")
                 .map((name) => name[0])

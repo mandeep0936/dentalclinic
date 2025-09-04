@@ -155,6 +155,12 @@ function Home() {
                 Services
               </a>
               <a
+                href="#about"
+                className="text-gray-700 hover:text-blue-600 transition-colors"
+              >
+                About Us
+              </a>
+              <a
                 href="#testimonials"
                 className="text-gray-700 hover:text-blue-600 transition-colors"
               >
@@ -512,6 +518,192 @@ function Home() {
         </div>
       </section>
 
+      {/* About Us Section */}
+      <section id="about" className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Meet Our Expert Team
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Our experienced dental professionals are dedicated to providing
+              you with the highest quality care in a comfortable and welcoming
+              environment.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Doctor 1 */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <CardContent className="p-8">
+                  <div className="mb-6">
+                    <img
+                      src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=300&q=80"
+                      alt="Dr. Sarah Johnson"
+                      className="w-32 h-32 rounded-full mx-auto mb-4 object-cover shadow-lg"
+                    />
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                      Dr. Sarah Johnson
+                    </h3>
+                    <p className="text-blue-600 font-semibold mb-4">
+                      Lead Orthodontist
+                    </p>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed mb-6">
+                    With over 15 years of experience in orthodontics, Dr.
+                    Johnson specializes in modern orthodontic treatments and
+                    smile makeovers. She is passionate about helping patients
+                    achieve their perfect smile.
+                  </p>
+                  <div className="space-y-2 text-sm text-gray-500">
+                    <div className="flex items-center justify-center gap-2">
+                      <Award className="h-4 w-4" />
+                      <span>DDS, University of Dental Medicine</span>
+                    </div>
+                    <div className="flex items-center justify-center gap-2">
+                      <Star className="h-4 w-4" />
+                      <span>15+ Years Experience</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Doctor 2 */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <CardContent className="p-8">
+                  <div className="mb-6">
+                    <img
+                      src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=300&q=80"
+                      alt="Dr. Michael Chen"
+                      className="w-32 h-32 rounded-full mx-auto mb-4 object-cover shadow-lg"
+                    />
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                      Dr. Michael Chen
+                    </h3>
+                    <p className="text-blue-600 font-semibold mb-4">
+                      Cosmetic Dentist
+                    </p>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed mb-6">
+                    Dr. Chen is an expert in cosmetic dentistry with a focus on
+                    veneers, teeth whitening, and aesthetic procedures. He
+                    combines artistry with advanced dental techniques.
+                  </p>
+                  <div className="space-y-2 text-sm text-gray-500">
+                    <div className="flex items-center justify-center gap-2">
+                      <Award className="h-4 w-4" />
+                      <span>DMD, Harvard School of Dental Medicine</span>
+                    </div>
+                    <div className="flex items-center justify-center gap-2">
+                      <Star className="h-4 w-4" />
+                      <span>12+ Years Experience</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Doctor 3 */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <Card className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <CardContent className="p-8">
+                  <div className="mb-6">
+                    <img
+                      src="https://images.unsplash.com/photo-1594824475317-8b7d0516b8b1?w=300&q=80"
+                      alt="Dr. Emily Rodriguez"
+                      className="w-32 h-32 rounded-full mx-auto mb-4 object-cover shadow-lg"
+                    />
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                      Dr. Emily Rodriguez
+                    </h3>
+                    <p className="text-blue-600 font-semibold mb-4">
+                      Pediatric Dentist
+                    </p>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed mb-6">
+                    Dr. Rodriguez specializes in pediatric dentistry and family
+                    care. She creates a comfortable and fun environment for
+                    children while providing comprehensive dental care for all
+                    ages.
+                  </p>
+                  <div className="space-y-2 text-sm text-gray-500">
+                    <div className="flex items-center justify-center gap-2">
+                      <Award className="h-4 w-4" />
+                      <span>DDS, UCLA School of Dentistry</span>
+                    </div>
+                    <div className="flex items-center justify-center gap-2">
+                      <Star className="h-4 w-4" />
+                      <span>10+ Years Experience</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
+
+          {/* Clinic Stats */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="mt-16 bg-blue-600 rounded-2xl p-8 text-white"
+          >
+            <div className="text-center mb-8">
+              <h3 className="text-3xl font-bold mb-4">
+                Why Choose DentalCare?
+              </h3>
+              <p className="text-blue-100 text-lg max-w-2xl mx-auto">
+                We're committed to providing exceptional dental care with
+                state-of-the-art technology and a patient-first approach.
+              </p>
+            </div>
+            <div className="grid md:grid-cols-4 gap-8 text-center">
+              <div>
+                <div className="text-4xl font-bold mb-2">15+</div>
+                <div className="text-blue-100">Years of Excellence</div>
+              </div>
+              <div>
+                <div className="text-4xl font-bold mb-2">5000+</div>
+                <div className="text-blue-100">Happy Patients</div>
+              </div>
+              <div>
+                <div className="text-4xl font-bold mb-2">98%</div>
+                <div className="text-blue-100">Satisfaction Rate</div>
+              </div>
+              <div>
+                <div className="text-4xl font-bold mb-2">24/7</div>
+                <div className="text-blue-100">Emergency Care</div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -603,6 +795,14 @@ function Home() {
                     className="hover:text-white transition-colors"
                   >
                     Services
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#about"
+                    className="hover:text-white transition-colors"
+                  >
+                    About Us
                   </a>
                 </li>
                 <li>

@@ -73,12 +73,12 @@ const DashboardPage = () => {
   ];
 
   return (
-    <div className="flex h-screen bg-background">
+    <div className="flex h-screen bg-gradient-to-b from-blue-50 to-white">
       {/* Sidebar */}
       <Sidebar />
 
       {/* Main Content */}
-      <div className="flex-1 overflow-y-auto p-6">
+      <div className="flex-1 overflow-y-auto p-6 bg-gradient-to-b from-blue-50 to-white">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -87,7 +87,7 @@ const DashboardPage = () => {
         >
           <div className="flex items-center justify-between">
             <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
-            <Button>
+            <Button className="bg-blue-600 hover:bg-blue-700 shadow-md">
               <Calendar className="mr-2 h-4 w-4" />
               New Appointment
             </Button>

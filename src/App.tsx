@@ -6,6 +6,8 @@ import DashboardPage from "./pages/doctor/dashboard";
 import AppointmentManagement from "./pages/doctor/AppointmentManagement";
 import SlotManagement from "./pages/doctor/SlotManagement";
 import BlogManagement from "./pages/doctor/BlogManagement";
+import BlogDetails from "./pages/doctor/BlogDetails";
+import TestimonialManagement from "./pages/doctor/TestimonialManagement";
 import Settings from "./pages/doctor/Settings";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { Toaster } from "@/components/ui/toaster";
@@ -52,6 +54,22 @@ function App() {
       element: (
         <ProtectedRoute>
           <BlogManagement />
+        </ProtectedRoute>
+      ),
+    },
+    {
+      path: "/doctor/blog/:id",
+      element: (
+        <ProtectedRoute>
+          <BlogDetails />
+        </ProtectedRoute>
+      ),
+    },
+    {
+      path: "/doctor/testimonials",
+      element: (
+        <ProtectedRoute>
+          <TestimonialManagement />
         </ProtectedRoute>
       ),
     },

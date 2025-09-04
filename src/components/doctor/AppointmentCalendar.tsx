@@ -193,13 +193,13 @@ const AppointmentCalendar = ({
   };
 
   return (
-    <div className="bg-white p-6 rounded-xl shadow-sm">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div className="bg-white p-4 md:p-6 rounded-xl shadow-lg border-0">
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-4 md:gap-6">
         {/* Calendar Section */}
-        <Card className="lg:col-span-1">
+        <Card className="xl:col-span-1 border-0 shadow-lg">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <CalendarIcon className="h-5 w-5 text-blue-500" />
+              <CalendarIcon className="h-5 w-5 text-blue-600" />
               <span>Calendar</span>
             </CardTitle>
             <CardDescription>
@@ -217,11 +217,11 @@ const AppointmentCalendar = ({
         </Card>
 
         {/* Appointments List Section */}
-        <Card className="lg:col-span-2">
+        <Card className="xl:col-span-2 border-0 shadow-lg">
           <CardHeader>
             <CardTitle className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <Clock className="h-5 w-5 text-blue-500" />
+                <Clock className="h-5 w-5 text-blue-600" />
                 <span>Appointments</span>
               </div>
               <span className="text-sm font-normal text-muted-foreground">
@@ -235,11 +235,19 @@ const AppointmentCalendar = ({
               onValueChange={setActiveTab}
               className="w-full"
             >
-              <TabsList className="grid w-full grid-cols-4">
-                <TabsTrigger value="all">All</TabsTrigger>
-                <TabsTrigger value="pending">Pending</TabsTrigger>
-                <TabsTrigger value="approved">Approved</TabsTrigger>
-                <TabsTrigger value="rejected">Rejected</TabsTrigger>
+              <TabsList className="grid w-full grid-cols-2 md:grid-cols-4">
+                <TabsTrigger value="all" className="text-xs md:text-sm">
+                  All
+                </TabsTrigger>
+                <TabsTrigger value="pending" className="text-xs md:text-sm">
+                  Pending
+                </TabsTrigger>
+                <TabsTrigger value="approved" className="text-xs md:text-sm">
+                  Approved
+                </TabsTrigger>
+                <TabsTrigger value="rejected" className="text-xs md:text-sm">
+                  Rejected
+                </TabsTrigger>
               </TabsList>
 
               <TabsContent value="all" className="mt-4">
@@ -248,11 +256,11 @@ const AppointmentCalendar = ({
                     {filteredAppointments.map((appointment) => (
                       <div
                         key={appointment.id}
-                        className="flex items-center justify-between p-4 border rounded-lg hover:bg-slate-50 cursor-pointer transition-colors"
+                        className="flex flex-col sm:flex-row sm:items-center justify-between p-3 md:p-4 border rounded-lg hover:bg-slate-50 cursor-pointer transition-colors gap-3 sm:gap-0"
                         onClick={() => handleAppointmentSelect(appointment)}
                       >
                         <div className="flex items-center gap-3">
-                          <Avatar>
+                          <Avatar className="h-8 w-8 md:h-10 md:w-10">
                             <AvatarImage
                               src={appointment.avatar}
                               alt={appointment.patientName}
@@ -261,16 +269,16 @@ const AppointmentCalendar = ({
                               {appointment.patientName.charAt(0)}
                             </AvatarFallback>
                           </Avatar>
-                          <div>
-                            <h4 className="font-medium">
+                          <div className="min-w-0 flex-1">
+                            <h4 className="font-medium text-sm md:text-base truncate">
                               {appointment.patientName}
                             </h4>
-                            <p className="text-sm text-muted-foreground">
+                            <p className="text-xs md:text-sm text-muted-foreground truncate">
                               {appointment.time} • {appointment.notes}
                             </p>
                           </div>
                         </div>
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-2 flex-shrink-0">
                           {appointment.status === "pending" && (
                             <div className="flex gap-1">
                               <Button
@@ -280,7 +288,7 @@ const AppointmentCalendar = ({
                                   e.stopPropagation();
                                   handleApprove(appointment.id);
                                 }}
-                                className="h-8 px-2"
+                                className="h-7 w-7 md:h-8 md:w-8 p-0"
                               >
                                 <Check className="h-3 w-3" />
                               </Button>
@@ -291,7 +299,7 @@ const AppointmentCalendar = ({
                                   e.stopPropagation();
                                   handleReject(appointment.id);
                                 }}
-                                className="h-8 px-2"
+                                className="h-7 w-7 md:h-8 md:w-8 p-0"
                               >
                                 <X className="h-3 w-3" />
                               </Button>
@@ -321,11 +329,11 @@ const AppointmentCalendar = ({
                     {filteredAppointments.map((appointment) => (
                       <div
                         key={appointment.id}
-                        className="flex items-center justify-between p-4 border rounded-lg hover:bg-slate-50 cursor-pointer transition-colors"
+                        className="flex flex-col sm:flex-row sm:items-center justify-between p-3 md:p-4 border rounded-lg hover:bg-slate-50 cursor-pointer transition-colors gap-3 sm:gap-0"
                         onClick={() => handleAppointmentSelect(appointment)}
                       >
                         <div className="flex items-center gap-3">
-                          <Avatar>
+                          <Avatar className="h-8 w-8 md:h-10 md:w-10">
                             <AvatarImage
                               src={appointment.avatar}
                               alt={appointment.patientName}
@@ -334,16 +342,16 @@ const AppointmentCalendar = ({
                               {appointment.patientName.charAt(0)}
                             </AvatarFallback>
                           </Avatar>
-                          <div>
-                            <h4 className="font-medium">
+                          <div className="min-w-0 flex-1">
+                            <h4 className="font-medium text-sm md:text-base truncate">
                               {appointment.patientName}
                             </h4>
-                            <p className="text-sm text-muted-foreground">
+                            <p className="text-xs md:text-sm text-muted-foreground truncate">
                               {appointment.time} • {appointment.notes}
                             </p>
                           </div>
                         </div>
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-2 flex-shrink-0">
                           {appointment.status === "pending" && (
                             <div className="flex gap-1">
                               <Button
@@ -353,7 +361,7 @@ const AppointmentCalendar = ({
                                   e.stopPropagation();
                                   handleApprove(appointment.id);
                                 }}
-                                className="h-8 px-2"
+                                className="h-7 w-7 md:h-8 md:w-8 p-0"
                               >
                                 <Check className="h-3 w-3" />
                               </Button>
@@ -364,7 +372,7 @@ const AppointmentCalendar = ({
                                   e.stopPropagation();
                                   handleReject(appointment.id);
                                 }}
-                                className="h-8 px-2"
+                                className="h-7 w-7 md:h-8 md:w-8 p-0"
                               >
                                 <X className="h-3 w-3" />
                               </Button>
@@ -394,11 +402,11 @@ const AppointmentCalendar = ({
                     {filteredAppointments.map((appointment) => (
                       <div
                         key={appointment.id}
-                        className="flex items-center justify-between p-4 border rounded-lg hover:bg-slate-50 cursor-pointer transition-colors"
+                        className="flex flex-col sm:flex-row sm:items-center justify-between p-3 md:p-4 border rounded-lg hover:bg-slate-50 cursor-pointer transition-colors gap-3 sm:gap-0"
                         onClick={() => handleAppointmentSelect(appointment)}
                       >
                         <div className="flex items-center gap-3">
-                          <Avatar>
+                          <Avatar className="h-8 w-8 md:h-10 md:w-10">
                             <AvatarImage
                               src={appointment.avatar}
                               alt={appointment.patientName}
@@ -407,16 +415,16 @@ const AppointmentCalendar = ({
                               {appointment.patientName.charAt(0)}
                             </AvatarFallback>
                           </Avatar>
-                          <div>
-                            <h4 className="font-medium">
+                          <div className="min-w-0 flex-1">
+                            <h4 className="font-medium text-sm md:text-base truncate">
                               {appointment.patientName}
                             </h4>
-                            <p className="text-sm text-muted-foreground">
+                            <p className="text-xs md:text-sm text-muted-foreground truncate">
                               {appointment.time} • {appointment.notes}
                             </p>
                           </div>
                         </div>
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-2 flex-shrink-0">
                           {getStatusBadge(appointment.status)}
                         </div>
                       </div>
@@ -441,11 +449,11 @@ const AppointmentCalendar = ({
                     {filteredAppointments.map((appointment) => (
                       <div
                         key={appointment.id}
-                        className="flex items-center justify-between p-4 border rounded-lg hover:bg-slate-50 cursor-pointer transition-colors"
+                        className="flex flex-col sm:flex-row sm:items-center justify-between p-3 md:p-4 border rounded-lg hover:bg-slate-50 cursor-pointer transition-colors gap-3 sm:gap-0"
                         onClick={() => handleAppointmentSelect(appointment)}
                       >
                         <div className="flex items-center gap-3">
-                          <Avatar>
+                          <Avatar className="h-8 w-8 md:h-10 md:w-10">
                             <AvatarImage
                               src={appointment.avatar}
                               alt={appointment.patientName}
@@ -454,16 +462,16 @@ const AppointmentCalendar = ({
                               {appointment.patientName.charAt(0)}
                             </AvatarFallback>
                           </Avatar>
-                          <div>
-                            <h4 className="font-medium">
+                          <div className="min-w-0 flex-1">
+                            <h4 className="font-medium text-sm md:text-base truncate">
                               {appointment.patientName}
                             </h4>
-                            <p className="text-sm text-muted-foreground">
+                            <p className="text-xs md:text-sm text-muted-foreground truncate">
                               {appointment.time} • {appointment.notes}
                             </p>
                           </div>
                         </div>
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-2 flex-shrink-0">
                           {getStatusBadge(appointment.status)}
                         </div>
                       </div>

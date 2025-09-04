@@ -51,6 +51,7 @@ import {
   User,
   FileText,
   Search,
+  ExternalLink,
 } from "lucide-react";
 import { format } from "date-fns";
 import Sidebar from "@/components/doctor/Sidebar";
@@ -193,10 +194,10 @@ const BlogManagement = () => {
   };
 
   return (
-    <div className="flex h-screen bg-background">
+    <div className="flex h-screen bg-gradient-to-b from-blue-50 to-white">
       <Sidebar />
 
-      <div className="flex-1 overflow-y-auto p-6">
+      <div className="flex-1 overflow-y-auto p-6 bg-gradient-to-b from-blue-50 to-white">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -217,7 +218,10 @@ const BlogManagement = () => {
               onOpenChange={setIsCreateDialogOpen}
             >
               <DialogTrigger asChild>
-                <Button onClick={resetForm}>
+                <Button
+                  onClick={resetForm}
+                  className="bg-blue-600 hover:bg-blue-700 shadow-md"
+                >
                   <Plus className="mr-2 h-4 w-4" />
                   New Post
                 </Button>
@@ -380,6 +384,15 @@ const BlogManagement = () => {
                       </TableCell>
                       <TableCell className="text-right">
                         <div className="flex items-center justify-end gap-2">
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={() =>
+                              (window.location.href = `/doctor/blog/${post.id}`)
+                            }
+                          >
+                            <ExternalLink className="h-4 w-4" />
+                          </Button>
                           <Button
                             variant="ghost"
                             size="sm"
